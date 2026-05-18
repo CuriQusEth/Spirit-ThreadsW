@@ -15,12 +15,38 @@ Spirit Threads brings the tapestries to the blockchain:
 - **ERC-8021 & ERC-8004 Ready**: Includes foundational configurations for Trustless Agents and on-chain attribution.
 - **Agentic Infrastructure**: Includes an Orchestrator AI Agent configured with `agent-card.json` and Model Context Protocol (MCP) endpoints.
 
+## 🤖 Spirit Threads Orchestrator
+The Spirit Threads Orchestrator is an active, ERC-8004 compatible AI Agent on the Spirit Threads platform. It manages thread weaving, spirit mechanics, narrative orchestration, multi-thread management, and creative automation.
+
+### Capabilities
+- `thread-weaving`
+- `narrative-orchestration`
+- `spirit-mechanics`
+- `multi-thread-management`
+- `creative-automation`
+- `story-generation`
+- `mcp-command-execution`
+
+### Endpoints
+- **A2A**: Agent-to-Agent communication endpoint.
+- **MCP**: Model Context Protocol - Active command execution.
+- **API**: Main agent control API.
+
+### MCP Tools Available
+- `get_race_status`
+- `start_race`
+- `get_leaderboard`
+- `optimize_speed`
+- `get_track_info`
+
+## 📋 Agent Registration Info
+The agent registration information can be found at `/.well-known/agent-card.json`. This adheres to EIP-8004 specifications for trustless agent representation.
+
 ## 🛠 Tech Stack
-- **Frontend**: React 19, TypeScript, Vite
+- **Frontend**: Next.js 14 App Router, React, TypeScript
 - **Styling**: Tailwind CSS
-- **Animation**: `motion/react`
+- **Animation**: Framer Motion
 - **Web3**: Wagmi, Viem, TanStack Query
-- **Backend API**: Express (for MCP and Agent Routes)
 
 ## 🚀 Getting Started
 
@@ -40,7 +66,7 @@ Spirit Threads brings the tapestries to the blockchain:
 4. The application will be running on `http://localhost:3000`.
 
 ### Building for Production
-To build the game and the Express server for production:
+To build the game for production:
 ```bash
 npm run build
 ```
@@ -49,9 +75,3 @@ Then start the production server:
 npm start
 ```
 
-## 📜 Lore
-In the Ethereal Realm, lost souls drift like stars in a broken sky. As the Thread Weaver, you hold the power to mend these bonds. Every thread you weave pulses with the emotion of the spirits it connects. Will you achieve ultimate harmony?
-
-## 🔒 Configuration & Security
-This repository is configured to keep sensitive information secure.
-When deploying, make sure to set up any environment variables and authentication keys securely managed by your hosting provider. Builder codes and API endpoints should be correctly injected via your CI/CD pipeline or environment settings.

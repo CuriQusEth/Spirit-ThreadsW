@@ -28,6 +28,42 @@ async function startServer() {
   app.post('/api/mcp', (req: Request, res: Response) => {
     try {
       const body = req.body;
+      const { method } = body;
+
+      if (method === 'initialize') {
+        res.json({
+          protocolVersion: '1.0.0',
+          capabilities: { tools: {}, prompts: {}, resources: {} },
+          serverInfo: {
+            name: 'Spirit Threads Orchestrator',
+            version: '1.0.0'
+          }
+        });
+        return;
+      }
+
+      const TOOLS = [
+        { name: 'get_race_status', description: 'Get the current status of the race', inputSchema: { type: 'object', properties: {} } },
+        { name: 'start_race', description: 'Start a new race', inputSchema: { type: 'object', properties: {} } },
+        { name: 'get_leaderboard', description: 'Get the current leaderboard', inputSchema: { type: 'object', properties: {} } },
+        { name: 'optimize_speed', description: 'Optimize weaving speed', inputSchema: { type: 'object', properties: {} } },
+        { name: 'get_track_info', description: 'Get information about the current track', inputSchema: { type: 'object', properties: {} } }
+      ];
+
+      if (method === 'tools/list') {
+        res.json({ tools: TOOLS });
+        return;
+      }
+
+      if (method === 'tools/call') {
+        const { params } = body;
+        res.json({
+          content: [{ type: 'text', text: `Tool ${params?.name} executed successfully.` }],
+          isError: false
+        });
+        return;
+      }
+
       res.json({
         status: "success",
         message: "MCP command received",
