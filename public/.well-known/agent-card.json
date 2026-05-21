@@ -36,6 +36,23 @@
     "story-generation",
     "mcp-command-execution"
   ],
+  "skills": [
+    {
+      "id": "thread-weaving",
+      "name": "Thread Weaving",
+      "description": "Ability to weave narrative threads securely"
+    },
+    {
+      "id": "narrative-orchestration",
+      "name": "Narrative Orchestration",
+      "description": "Orchestrates the general flow of stories and game mechanics"
+    },
+    {
+      "id": "creative-automation",
+      "name": "Creative Automation",
+      "description": "Automates creative tasks in the Spirit Threads platform"
+    }
+  ],
   "supportedChains": ["eip155:8453"],
   "active": true,
   "status": "online"

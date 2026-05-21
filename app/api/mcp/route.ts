@@ -29,21 +29,10 @@ const TOOLS = [
 ];
 
 export async function GET() {
-  return NextResponse.json({
-    protocol: "MCP",
-    version: "1.0.0",
-    name: "Spirit Threads Orchestrator MCP Endpoint",
-    status: "active",
-    description: "Active MCP server for Spirit Threads Orchestrator Agent",
-    capabilities: ["thread-weaving", "narrative-orchestration", "creative-automation"],
-    timestamp: new Date().toISOString()
-  }, {
-    headers: {
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
-      'Access-Control-Allow-Headers': 'Content-Type, Authorization',
-    }
-  });
+  return NextResponse.json(
+    { status: "MCP Server Active. Use POST for JSON-RPC." },
+    { headers: getCorsHeaders() }
+  );
 }
 
 export async function POST(req: Request) {

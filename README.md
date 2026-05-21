@@ -18,6 +18,11 @@ Spirit Threads brings the tapestries to the blockchain:
 ## 🤖 Spirit Threads Orchestrator
 The Spirit Threads Orchestrator is an active, ERC-8004 compatible AI Agent on the Spirit Threads platform. It manages thread weaving, spirit mechanics, narrative orchestration, multi-thread management, and creative automation.
 
+### Agent Skills
+- **Thread Weaving**: Ability to weave narrative threads securely.
+- **Narrative Orchestration**: Orchestrates the general flow of stories and game mechanics.
+- **Creative Automation**: Automates creative tasks in the Spirit Threads platform.
+
 ### Capabilities
 - `thread-weaving`
 - `narrative-orchestration`
@@ -28,9 +33,26 @@ The Spirit Threads Orchestrator is an active, ERC-8004 compatible AI Agent on th
 - `mcp-command-execution`
 
 ### Endpoints
-- **A2A**: Agent-to-Agent communication endpoint.
-- **MCP**: Model Context Protocol - Active command execution.
-- **API**: Main agent control API.
+- **A2A**: `https://spirit-threads-w.vercel.app/.well-known/agent-card.json`
+- **MCP**: `https://spirit-threads-w.vercel.app/api/mcp`
+- **API**: `https://spirit-threads-w.vercel.app/api/agent`
+
+## 🔌 MCP Connection Guide
+To connect the Spirit Threads Orchestrator via MCP (Model Context Protocol), send your JSON-RPC requests to the `/api/mcp` endpoint.
+
+**Example Request:**
+```bash
+curl -X POST https://spirit-threads-w.vercel.app/api/mcp \
+  -H "Content-Type: application/json" \
+  -d '{
+    "jsonrpc": "2.0",
+    "method": "tools/call",
+    "params": {
+      "name": "get_race_status"
+    },
+    "id": 1
+  }'
+```
 
 ### MCP Tools Available
 - `get_race_status`
