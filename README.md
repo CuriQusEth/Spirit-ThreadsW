@@ -65,10 +65,11 @@ curl -X POST https://spirit-threads-w.vercel.app/api/mcp \
 The agent registration information can be found at `/.well-known/agent-card.json`. This adheres to EIP-8004 specifications for trustless agent representation.
 
 ## 🛠 Tech Stack
-- **Frontend**: Next.js 14 App Router, React, TypeScript
+- **Frontend**: Vite, React, TypeScript
 - **Styling**: Tailwind CSS
 - **Animation**: Framer Motion
 - **Web3**: Wagmi, Viem, TanStack Query
+- **Serverless API**: Vercel Node.js Serverless Functions (located in `/api` directory)
 
 ## 🚀 Getting Started
 
