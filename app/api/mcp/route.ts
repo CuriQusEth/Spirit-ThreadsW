@@ -38,50 +38,58 @@ export async function GET() {
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const { method } = body;
 
-    if (method === 'initialize') {
+    if (body.jsonrpc !== "2.0") {
       return NextResponse.json({
+        jsonrpc: "2.0",
+        id: body.id || null,
+        error: { code: -32600, message: "Invalid Request: missing or invalid jsonrpc version" }
+      }, { status: 400, headers: getCorsHeaders() });
+    }
+
+    const { method, params, id } = body;
+
+    let result;
+    if (method === 'initialize') {
+      result = {
         protocolVersion: '1.0.0',
         capabilities: { tools: {}, prompts: {}, resources: {} },
         serverInfo: {
           name: 'Spirit Threads Orchestrator',
           version: '1.0.0'
         }
-      }, { headers: getCorsHeaders() });
-    }
-
-    if (method === 'tools/list') {
-      return NextResponse.json({
-        tools: TOOLS
-      }, { headers: getCorsHeaders() });
-    }
-
-    if (method === 'tools/call') {
-      const { params } = body;
-      return NextResponse.json({
+      };
+    } else if (method === 'tools/list') {
+      result = { tools: TOOLS };
+    } else if (method === 'tools/call') {
+      result = {
         content: [{ type: 'text', text: `Tool ${params?.name} executed successfully.` }],
         isError: false
-      }, { headers: getCorsHeaders() });
-    }
-
-    if (method === 'prompts/list') {
-      return NextResponse.json({ prompts: [] }, { headers: getCorsHeaders() });
-    }
-
-    if (method === 'resources/list') {
-      return NextResponse.json({ resources: [] }, { headers: getCorsHeaders() });
+      };
+    } else if (method === 'prompts/list') {
+      result = { prompts: [] };
+    } else if (method === 'resources/list') {
+      result = { resources: [] };
+    } else {
+      return NextResponse.json({
+        jsonrpc: "2.0",
+        id: id || null,
+        error: { code: -32601, message: "Method not found" }
+      }, { status: 404, headers: getCorsHeaders() });
     }
 
     return NextResponse.json({
-      status: "success",
-      message: "MCP command received",
-      agent: "Spirit Threads Orchestrator",
-      receivedAt: new Date().toISOString(),
-      payload: body
+      jsonrpc: "2.0",
+      id,
+      result
     }, { headers: getCorsHeaders() });
+
   } catch (error) {
-    return NextResponse.json({ error: "Invalid MCP request" }, { status: 400, headers: getCorsHeaders() });
+    return NextResponse.json({
+      jsonrpc: "2.0",
+      id: null,
+      error: { code: -32700, message: "Parse error" }
+    }, { status: 400, headers: getCorsHeaders() });
   }
 }
 
