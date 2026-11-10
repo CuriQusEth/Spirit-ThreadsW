@@ -16,6 +16,9 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
       status: "active",
       wallet: "0x29536D0bc1004ab274c4F0F59734Ad74D4559b7B",
       platform: "Spirit Threads",
+      network: "Base Mainnet (Denim)",
+      chainId: 8453,
+      blockCadence: "200ms",
       version: "1.0.0"
     });
   }

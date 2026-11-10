@@ -10,8 +10,9 @@
 
 ## 🔗 Web3 & On-Chain Integration
 Spirit Threads brings the tapestries to the blockchain:
-- **Base Mainnet Ready**: Integrated with Wagmi, Viem, and Base accounts.
-- **SIWE Integration**: Players can securely sign their tapestry scores on-chain via Sign-In with Ethereum.
+- **Base Mainnet (Denim Upgrade)**: Native 200ms canonical blocks with sub-second finality. Flashblocks have been fully migrated to canonical Base RPCs (`https://mainnet.base.org` / `wss://mainnet.base.org`).
+- **High-Cadence Polling**: Polling intervals tuned to 200-250ms for near-instant transaction confirmations and live chain state.
+- **SIWE Integration**: Players can securely sign their tapestry scores on-chain via Sign-In with Ethereum on Base Mainnet (Chain ID `8453`).
 - **ERC-8021 & ERC-8004 Ready**: Includes foundational configurations for Trustless Agents and on-chain attribution.
 - **Agentic Infrastructure**: Includes an Orchestrator AI Agent configured with `agent-card.json` and Model Context Protocol (MCP) endpoints.
 

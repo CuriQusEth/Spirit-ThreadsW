@@ -1,6 +1,6 @@
 {
   "name": "Spirit Threads Orchestrator",
-  "description": "Spirit Threads platformunda çalışan ERC-8004 uyumlu AI Agent. Thread weaving, spirit mechanics, narrative orchestration, multi-thread management ve creative automation yapan akıllı orchestrator.",
+  "description": "Spirit Threads platformunda çalışan ERC-8004 uyumlu AI Agent. Base Mainnet (Denim · 200ms) üzerinde thread weaving, spirit mechanics, narrative orchestration, multi-thread management ve creative automation yapan akıllı orchestrator.",
   "version": "1.0.0",
   "type": "https://eips.ethereum.org/EIPS/eip-8004#registration-v1",
   "image": "https://spirit-threads-w.vercel.app/logo.png",
